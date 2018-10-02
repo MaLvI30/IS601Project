@@ -1,5 +1,9 @@
 <?php
-echo 'test';
-echo 'hello';
-echo 'world';
-echo 'This is csv project';
+main:: start();
+
+class main {
+    static public function start() {
+        $records =csv::getRecords();
+        echo 'test';
+    }
+}
