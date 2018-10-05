@@ -1,36 +1,21 @@
 <?php
-main:: start();
+main::start();
 
-class main {
-    static public function start() {
-        $records = csv::getRecords();
-        $table = html::generateTable($records);
-        system:: printPage($table);
+class main
+{
+    static public function start()
+    {
+        $file = fopen("mini_project.csv","r");
+
+        while(! feof($file))
+        {
+            $record = fgetcsv($file);
+
+            $records[] =$record;
+
+        }
+
+        fclose($file);
+        print_r($records);
     }
 }
- class csv
- {
-     static public function getRecords()
-     {
-         echo 'test';
-     }
- }
-
-
- class html{
-
-    static public function generateTable($records)
-    {
-        $table = $records;
-        return $table;
-    }
-
- }
- class system{
-    
-    static public function printPage($page)
-    {
-        echo $page;
-    }
-
- }
