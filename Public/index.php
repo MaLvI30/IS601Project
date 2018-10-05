@@ -1,11 +1,25 @@
 <?php
-main::start();
+main::start("mini_project.csv");
 
 class main
 {
-    static public function start()
+    static public function start($filename)
     {
-        $file = fopen("mini_project.csv","r");
+
+        $records = csv::getRecords($filename);
+
+        $record = recordFactory::create();
+
+        print_r($record);
+
+    }
+}
+class csv{
+
+    static public function getRecords($filename){
+
+
+        $file = fopen($filename,"r");
 
         while(! feof($file))
         {
@@ -16,6 +30,22 @@ class main
         }
 
         fclose($file);
-        print_r($records);
+
+        return $records;
+
+
+
     }
+
 }
+ class record{}
+ class recordFactory{
+
+    public static function create(Array $array = null){
+
+        $record = new record();
+        return $record;
+
+    }
+
+ }
