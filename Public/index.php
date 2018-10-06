@@ -11,6 +11,16 @@ class csv{
 
     }
 }
+class record{
+    public function __construct()
+    {
+    }
+}
+class recordFactory{
+    public static function create(){
+        
+    }
+}
 class html{
     static public function generateTable(){
 
@@ -18,6 +28,6 @@ class html{
 }
 class system{
     static public function printPage(){
-        
+
     }
 }
