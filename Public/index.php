@@ -2,7 +2,7 @@
 main:: start("csv_project.csv");
 class main
 {
-    static public function start(){
+    static public function start($filename){
         $records = csv::getRecords($filename);
         $table = html::createTable($records);
         system:: pagePrint($table);
@@ -10,7 +10,7 @@ class main
     }
 }
 class csv{
-    static public function getRecords(){
+    static public function getRecords($filename){
 
         $file = fopen($filename,"r");
         $fields = array();
